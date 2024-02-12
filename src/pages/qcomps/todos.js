@@ -10,12 +10,17 @@ const person = {
 };
 
 export default function TodoList() {
+  // 动态构造图片的完整URL
+  const imageUrl = `${baseUrl}${person.imageId}${person.imageSize}.jpg`;
+
   return (
     <div style={person.theme}>
-      <h1>Person Name's Todos</h1>
+      {/* 动态插入person.name到标题 */}
+      <h1>{person.name}'s Todos</h1>
+      {/* 使用动态imageUrl和alt属性 */}
       <img className="avatar"
-      src="baseURL + imageID + imageSize + .jpg"
-      alt="Person's Name"
+           src={imageUrl}
+           alt={`${person.name}`}
       />
     </div>
   );
